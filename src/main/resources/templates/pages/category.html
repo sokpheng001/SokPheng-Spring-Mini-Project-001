@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layout/masterPage}"
+>
+<head>
+    <meta charset="UTF-8">
+    <title>Category</title>
+</head>
+<body>
+<th:block layout:fragment="category">
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col">
+                <ul class="list-group">
+                    <li class="list-group-item active" aria-current="true">Category</li>
+                    <li class="list-group-item"><a href="#" style="text-decoration: none; color: black">Sport</a></li>
+                    <li class="list-group-item"><a href="#" style="text-decoration: none; color: black">Anime</a></li>
+                    <li class="list-group-item"><a href="#" style="text-decoration: none; color: black">Mental Health</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="row mt-4 row-cols-xl-3 row-cols-md-2 row-cols-sm-1">
+            <div class="col" th:each="dates, index :${data}" th:object="${dates}">
+                <div th:field="${index}"></div>
+                <div th:replace="~{fragments/card::card(${dates.getTitle()},${dates.getAuthor()},${dates.getDescription()},${dates.getThumbnail()},${size}, ${dates.getCategoryList()})}"></div>
+            </div>
+        </div>
+    </div>
+</th:block>
+</body>
+</html>

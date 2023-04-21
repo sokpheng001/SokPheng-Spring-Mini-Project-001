@@ -1,0 +1,17 @@
+<div>
+  <select xmlns:th="http://www.thymeleaf.org">
+    <div th:fragment="cardReadOnly(title,author,desciption,thumbnail)">
+      <div class="card mb-4 shadow">
+        <div class="card-body text-center">
+          <img th:src="@{/files/{thubmnail}(thubmnail=${thumbnail})}"
+               alt="avatar"
+               class="rounded-circle img-fluid" style="width: 100px; height: 100px; object-fit: cover">
+          <h5 class="my-3" th:text="*{title}"></h5>
+          <span class="bold">Author : </span><span class="text-muted mb-1" th:text="*{author}"></span><br>
+          <span class="bold">Description </span><p class="text-muted mb-4" th:text="${desciption}" ></p>
+          <span class="badge bg-secondary ">Category</span>
+        </div>
+      </div>
+    </div>
+  </select>
+</div>

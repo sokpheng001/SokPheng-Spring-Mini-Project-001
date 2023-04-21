@@ -1,0 +1,24 @@
+<select xmlns:th="http://www.thymeleaf.org">
+    <div th:fragment="card(title,author,desciption,thumbnail,id, category)">
+        <div class="card mb-4 shadow">
+            <div class="card-body text-center">
+                <img th:src="@{/files/{thubmnail}(thubmnail=${thumbnail})}"
+                     alt="avatar"
+                     class="rounded-circle img-fluid" style="width: 100px; height: 100px; object-fit: cover">
+                <h5 class="my-2" th:text="*{title}"></h5>
+                <span class="bold">Author : </span><span class="text-muted mb-1" th:text="*{author}"></span><br>
+                <span class="bold">Description : </span><span class="text-muted mb-4" th:text="${desciption}"></span><br>
+                <span class="badge bg-secondary mt-2" th:text="${category}">Category</span>
+                <div class="d-flex justify-content-center mb-2 mt-3">
+                    <a type="button" href="/add">
+                        <button type="button" class="btn btn-danger mx-2">Delete</button>
+                    </a>
+                    <a type="button" th:href="@{/any/blog/{id}(id=${id})}">
+                        <button type="button" class="btn btn-outline-secondary mx-2">See Blog</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</select>
+<!--card read only-->
